@@ -2,7 +2,7 @@
 
 A production-ready implementation of AutoGen's RetrieveChat for retrieval-augmented code generation and intelligent question answering, featuring multi-agent architecture and automated context updating.
 
-## 🎯 Project Overview
+## Project Overview
 
 This project implements a sophisticated conversational AI system using AutoGen's RetrieveChat framework, demonstrating advanced Retrieval-Augmented Generation (RAG) capabilities for:
 
@@ -11,21 +11,15 @@ This project implements a sophisticated conversational AI system using AutoGen's
 - **Multi-hop Reasoning** for complex queries requiring multiple information sources
 - **Dynamic Context Management** with automatic context updating when initial retrieval is insufficient
 
-## 🏗️ Architecture
+## Architecture
 
 ### Core Components
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Assistant     │    │ RetrieveUser    │    │   Vector DB     │
-│    Agent        │◄──►│  ProxyAgent     │◄──►│   (ChromaDB)    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                              │
-                              ▼
-                    ┌─────────────────┐
-                    │   Document      │
-                    │   Processing    │
-                    └─────────────────┘
+```mermaid
+flowchart LR
+    A[Assistant Agent] <--> B[RetrieveUserProxyAgent]
+    B <--> C[(Vector DB<br/>ChromaDB)]
+    B --> D[Document Processing]
 ```
 
 ### Key Features
@@ -36,7 +30,7 @@ This project implements a sophisticated conversational AI system using AutoGen's
 - **Customizable Prompts**: Support for task-specific prompts and few-shot learning
 - **Multiple Data Sources**: Support for local files, URLs, and various document formats
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -83,7 +77,7 @@ chat_result = ragproxyagent.initiate_chat(
 )
 ```
 
-## 📋 Implementation Examples
+## Implementation Examples
 
 ### 1. Code Generation from Documentation
 
@@ -158,7 +152,7 @@ ragproxyagent = RetrieveUserProxyAgent(
 )
 ```
 
-## 🔧 Configuration Options
+## Configuration Options
 
 ### RetrieveUserProxyAgent Parameters
 
@@ -197,7 +191,7 @@ retrieve_config = {
 }
 ```
 
-## 📊 Performance Metrics
+## Performance Metrics
 
 Based on implementation testing:
 
@@ -207,7 +201,7 @@ Based on implementation testing:
 - **Concurrent Users**: Supports 1000+ simultaneous conversations
 - **Uptime**: 99%+ system availability
 
-## 🗃️ Supported Document Formats
+## Supported Document Formats
 
 ```python
 TEXT_FORMATS = [
@@ -216,7 +210,7 @@ TEXT_FORMATS = [
 ]
 ```
 
-## 🧪 Testing Examples
+## Testing Examples
 
 ### Natural Questions Dataset
 ```python
@@ -245,7 +239,7 @@ complex_queries = [
 ]
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Local Development
 ```bash
@@ -265,7 +259,7 @@ docker run -p 8000:8000 retrievechat-app
 docker-compose up -d
 ```
 
-## 📈 Future Enhancements
+## Future Enhancements
 
 - **Multi-modal Support**: Integration with image and video understanding
 - **Real-time Learning**: Dynamic knowledge base updates
@@ -273,7 +267,7 @@ docker-compose up -d
 - **API Gateway**: RESTful API for integration with external systems
 - **Scalability**: Distributed deployment with load balancing
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -281,18 +275,18 @@ docker-compose up -d
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **AutoGen Team** for the foundational framework
 - **Microsoft Research** for AutoGen development
 - **OpenAI/Anthropic** for LLM integration support
 - **ChromaDB** for vector database capabilities
 
-## 📧 Contact
+## Contact
 
 **Jay Guwalani** - AI Architect & Data Science Engineer
 - Email: jguwalan@umd.edu
@@ -302,4 +296,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-⭐ **Star this repository if you found it helpful!**
+ **Star this repository if you found it helpful!**
